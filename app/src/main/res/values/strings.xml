@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Dental Application Project</string>
+    <string name="dental_application">Dental Application</string>
+    <string name="doctors">Doctors</string>
+    <string name="our_work">Our Work</string>
+    <string name="location">Location</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="appointment">Appointment</string>
+    <string name="title_activity_google_maps">GoogleMapsActivity</string>
+</resources>
