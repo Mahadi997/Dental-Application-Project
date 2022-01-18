@@ -16,6 +16,7 @@ import java.util.List;
 public class DoctorRecyclerView extends AppCompatActivity {
 
     private RecyclerView doctorRecyclerView;
+    private List<Doctor> doctorlist;
 
 
     @Override
@@ -30,14 +31,23 @@ public class DoctorRecyclerView extends AppCompatActivity {
     private List<Doctor> getAllDoctors() {
 
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
-        myDataBase.doctorDao().insertDoctor(new Doctor("Faris","Ramic","Junior",R.drawable.settings));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Adnan","Mekic","Medior",R.drawable.appointment));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Faris","Ramic","Junior",R.drawable.logout));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Adnan","Mekic","Medior",R.drawable.appointment));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Faris","Ramic","Junior",R.drawable.settings));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Adnan","Mekic","Medior",R.drawable.appointment));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Faris","Ramic","Junior",R.drawable.settings));
-        myDataBase.doctorDao().insertDoctor(new Doctor("Adnan","Mekic","Medior",R.drawable.appointment));
+        doctorlist = myDataBase.doctorDao().getAllDoctors();
+
+
+
+            if (doctorlist.isEmpty()) {
+
+                myDataBase.doctorDao().insertDoctor(new Doctor("Mike", "M", "Specialist", R.drawable.mike));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Bob", "B", "Assistant", R.drawable.bob));
+                myDataBase.doctorDao().insertDoctor(new Doctor("John", "J", "Junior", R.drawable.john));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Caleb", "C", "Senior", R.drawable.caleb));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Summer", "S", "Assistant", R.drawable.summer));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Ashley", "A", "Junior", R.drawable.ashley));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Emma", "E", "Senior", R.drawable.emma));
+                myDataBase.doctorDao().insertDoctor(new Doctor("Nicole", "N", "Specialist", R.drawable.nicole));
+
+            }
+
         return myDataBase.doctorDao().getAllDoctors();
     }
 }

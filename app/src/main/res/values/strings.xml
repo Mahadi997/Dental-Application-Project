@@ -8,4 +8,5 @@
     <string name="logout">Logout</string>
     <string name="appointment">Appointment</string>
     <string name="title_activity_google_maps">GoogleMapsActivity</string>
+    <string name="selected_date">Selected Date</string>
 </resources>

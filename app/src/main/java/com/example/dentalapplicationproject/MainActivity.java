@@ -35,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
         userId = getIntent().getIntExtra("id", 0);
 
 
+
+        appointmentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AppointmentsActivity.class);
+                intent.putExtra("id",userId);
+                startActivity(intent);
+            }
+        });
+
+
         logoutCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
