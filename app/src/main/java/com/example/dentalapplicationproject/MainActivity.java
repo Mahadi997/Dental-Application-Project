@@ -6,15 +6,13 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     CardView appointmentCard;
     CardView doctorsCard;
-    CardView ourWorkCard;
+    CardView myAppointmentCard;
     CardView locationCard;
     CardView settingsCard;
     CardView logoutCard;
@@ -28,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         appointmentCard = findViewById(R.id.appointmentCard);
         doctorsCard = findViewById(R.id.doctorsCard);
-        ourWorkCard = findViewById(R.id.ourWorkCard);
+        myAppointmentCard = findViewById(R.id.myAppointmentsCard);
         locationCard = findViewById(R.id.locationCard);
         settingsCard = findViewById(R.id.settingsCard);
         logoutCard = findViewById(R.id.logoutCard);
@@ -45,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        myAppointmentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         logoutCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
 locationCard.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this,GoogleMapsActivity.class);
+
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         startActivity(intent);
+
     }
 });
     }

@@ -84,7 +84,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/ourWorkCard"
+            android:id="@+id/myAppointmentsCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="20dp"
@@ -100,15 +100,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
                 android:layout_margin="10dp"
-                android:text="@string/our_work" />
+                android:text="My Appointments" />
 
             <ImageView
-                android:id="@+id/ourWorkGalleryIcon"
+                android:id="@+id/myAppointmentsIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="35dp"
-                app:srcCompat="@drawable/gallery"
+                app:srcCompat="@drawable/my_appp"
                 tools:ignore="ContentDescription" />
         </androidx.cardview.widget.CardView>
 
