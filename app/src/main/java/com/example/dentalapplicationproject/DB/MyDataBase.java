@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.dentalapplicationproject.R;
 
-@Database(entities = {User.class,Doctor.class,Appointments.class}, version = 2, exportSchema = false)
+@Database(entities = {User.class,Doctor.class,Appointments.class}, version = 1, exportSchema = false)
 public abstract class MyDataBase extends RoomDatabase {
 
     public abstract UserDao userDao();

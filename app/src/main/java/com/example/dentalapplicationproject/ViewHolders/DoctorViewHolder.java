@@ -1,7 +1,6 @@
 package com.example.dentalapplicationproject.ViewHolders;
 
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,9 +20,9 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
     public DoctorViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        cardDoctorName = itemView.findViewById(R.id.cardDoctorName);
+        cardDoctorName = itemView.findViewById(R.id.cardAppointmentInfo);
         cardDoctorDescription = itemView.findViewById(R.id.cardDoctorDescription);
-        cardDoctorImage = itemView.findViewById(R.id.cardDoctorImage);
+        cardDoctorImage = itemView.findViewById(R.id.cardAppointmentsImage);
 
     }
 

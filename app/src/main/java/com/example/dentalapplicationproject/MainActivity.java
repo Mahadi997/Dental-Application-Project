@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     CardView logoutCard;
     private int userId;
     private TextView mainUserId;
+    private int appointmentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +32,18 @@ public class MainActivity extends AppCompatActivity {
         settingsCard = findViewById(R.id.settingsCard);
         logoutCard = findViewById(R.id.logoutCard);
         userId = getIntent().getIntExtra("id", 0);
+        appointmentId = getIntent().getIntExtra("appointmentId",0);
+
 
 
 
         appointmentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this,AppointmentsActivity.class);
                 intent.putExtra("id",userId);
+
                 startActivity(intent);
             }
         });
@@ -47,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         myAppointmentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,AppointmentsRecyclerView.class);
+                intent.putExtra("id",userId);
+                intent.putExtra("appointmentId",appointmentId);
+                startActivity(intent);
 
             }
         });

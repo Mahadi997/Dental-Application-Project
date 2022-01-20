@@ -17,17 +17,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
+        <activity
+            android:name=".AppointmentsRecyclerView"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBXkWeCPdSfNJ2H82pz7Ok8IQrUdZC8OI0"/>
-
+            android:value="AIzaSyBXkWeCPdSfNJ2H82pz7Ok8IQrUdZC8OI0" />
 
         <activity
             android:name=".MapsActivity"
             android:exported="false" />
         <activity
             android:name=".AppointmentsActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".DoctorRecyclerView"
