@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/mainTitle"
+        android:id="@+id/adminMainTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -26,7 +26,7 @@
         app:rowCount="3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/appointmentCard"
+            android:id="@+id/adminAppointments"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="20dp"
@@ -55,7 +55,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/doctorsCard"
+            android:id="@+id/adminShowUsers"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="20dp"

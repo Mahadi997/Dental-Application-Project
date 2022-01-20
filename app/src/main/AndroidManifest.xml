@@ -18,9 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
-            android:name=".AppointmentsRecyclerView"
-            android:parentActivityName=".MainActivity"
+            android:name=".AdminActivity"
             android:exported="false" />
+        <activity
+            android:name=".AppointmentsRecyclerView"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -31,8 +34,8 @@
             android:exported="false" />
         <activity
             android:name=".AppointmentsActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DoctorRecyclerView"
             android:exported="false" />

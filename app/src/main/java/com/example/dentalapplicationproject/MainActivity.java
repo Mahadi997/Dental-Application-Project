@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        appointmentCard = findViewById(R.id.appointmentCard);
-        doctorsCard = findViewById(R.id.doctorsCard);
+        appointmentCard = findViewById(R.id.adminAppointments);
+        doctorsCard = findViewById(R.id.adminShowUsers);
         myAppointmentCard = findViewById(R.id.myAppointmentsCard);
         locationCard = findViewById(R.id.locationCard);
         settingsCard = findViewById(R.id.settingsCard);

@@ -38,7 +38,15 @@ public class LoginActivity extends AppCompatActivity {
         logLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateEmail() && !checkIfFieldsAreEmpty() && checkIfUserExists()) {
+
+                if (logEmail.getText().toString().equals("admin")  && logPassword.getText().toString().equals("admin")){
+
+                    Intent intent = new Intent(LoginActivity.this,AdminActivity.class);
+                    startActivity(intent);
+
+                }
+
+                else if (validateEmail() && !checkIfFieldsAreEmpty() && checkIfUserExists()) {
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("id", getUserIdByEmail(logEmail.getText().toString()));
