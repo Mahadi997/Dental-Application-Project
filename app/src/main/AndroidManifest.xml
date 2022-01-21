@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
+            android:name=".AdminAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminShowUserRecyclerView"
+            android:exported="false" />
+        <activity
             android:name=".AdminActivity"
             android:exported="false" />
         <activity

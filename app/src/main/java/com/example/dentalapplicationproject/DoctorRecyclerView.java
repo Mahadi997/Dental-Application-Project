@@ -23,6 +23,8 @@ public class DoctorRecyclerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_recycler_view);
+
+
         doctorRecyclerView = findViewById(R.id.doctorRecyclerView);
         doctorRecyclerView.setAdapter(new DoctorRecyclerViewAdapter(getAllDoctors()));
         doctorRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

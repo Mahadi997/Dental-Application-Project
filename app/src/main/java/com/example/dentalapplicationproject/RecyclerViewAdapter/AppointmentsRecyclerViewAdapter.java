@@ -19,7 +19,7 @@ import java.util.List;
 public class AppointmentsRecyclerViewAdapter extends RecyclerView.Adapter<AppointmentsViewHolder> {
 
     private List<Appointments> appointmentsList;
-    private int userId;
+
 
     public AppointmentsRecyclerViewAdapter(List<Appointments> appointmentsList) {
         this.appointmentsList = appointmentsList;

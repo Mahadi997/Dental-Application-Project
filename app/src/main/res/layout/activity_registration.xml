@@ -8,9 +8,11 @@
 
     <EditText
         android:id="@+id/regFirstName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="First name"
@@ -22,9 +24,11 @@
 
     <EditText
         android:id="@+id/regLastName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Last name"
@@ -36,9 +40,11 @@
 
     <EditText
         android:id="@+id/regCity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="City"
@@ -50,9 +56,11 @@
 
     <EditText
         android:id="@+id/regAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Address"
@@ -64,9 +72,11 @@
 
     <EditText
         android:id="@+id/regEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Email"
@@ -78,9 +88,11 @@
 
     <EditText
         android:id="@+id/regPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Password"
@@ -92,10 +104,12 @@
 
     <Button
         android:id="@+id/regRegisterBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="50dp"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

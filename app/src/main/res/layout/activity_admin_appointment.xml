@@ -4,77 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".AdminAppointmentActivity">
 
     <EditText
-        android:id="@+id/logEmail"
+        android:id="@+id/adminSetTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="150dp"
         android:ems="10"
-        android:gravity="center"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
+        android:hint="Set Time"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/logPassword"
+        android:id="@+id/adminSetStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:gravity="center"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
+        android:hint="Approve Appointment"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logEmail"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/adminSetTime" />
 
     <Button
-        android:id="@+id/logLoginBtn"
+        android:id="@+id/adminCoofirmAppointment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="login"
+        android:text="Confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/adminSetStatus" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/adminShowNameSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="OR"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="120dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logLoginBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/logRegisterBtn"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/adminShowDareAndTime"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="register"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="120dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/adminShowNameSurname" />
 
-
-
+    <TextView
+        android:id="@+id/adminShowStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="120dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminShowDareAndTime" />
 </androidx.constraintlayout.widget.ConstraintLayout>
