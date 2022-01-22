@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminAppointmentActivity">
+    tools:context=".AdminManageAppointmentsActivity">
 
     <EditText
         android:id="@+id/adminSetTime"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/adminSetTime" />
 
     <Button
-        android:id="@+id/adminCoofirmAppointment"
+        android:id="@+id/adminConfirmAppointment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/adminShowDareAndTime"
+        android:id="@+id/adminShowDateAndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -79,5 +79,5 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adminShowDareAndTime" />
+        app:layout_constraintTop_toBottomOf="@+id/adminShowDateAndTime" />
 </androidx.constraintlayout.widget.ConstraintLayout>

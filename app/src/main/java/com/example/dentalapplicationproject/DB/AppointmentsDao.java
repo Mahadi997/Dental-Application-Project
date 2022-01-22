@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Database;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public interface AppointmentsDao {
     @Insert
     void insertAppointment(Appointments appointments);
 
+    @Update
+    void updateAppointment(Appointments appointments);
+
 
     @Query("SELECT * FROM appointments")
     List<Appointments> getAllAppointments();
@@ -23,4 +27,6 @@ public interface AppointmentsDao {
     List<Appointments> getAppointmentById(int userId);
 
 
+    @Query("SELECT * FROM appointments WHERE id = :id AND userId = :userId")
+    List<Appointments> getAppointmentByAppointmentIdAndUserId(int id, int userId);
 }

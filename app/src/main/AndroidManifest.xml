@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
-            android:name=".AdminAppointmentActivity"
+            android:name=".AdminManageAppointmentsRecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".AdminManageAppointmentsActivity"
             android:exported="false" />
         <activity
             android:name=".AdminShowUserRecyclerView"
@@ -54,17 +57,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-        <activity android:name=".AdminAppointmentsRecyclerView"/>
     </application>
 
 </manifest>
