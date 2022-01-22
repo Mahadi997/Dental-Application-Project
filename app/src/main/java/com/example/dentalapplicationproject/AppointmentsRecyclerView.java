@@ -25,7 +25,7 @@ public class AppointmentsRecyclerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments_recycler_view);
-
+        setTitle("Appointments");
         userId = getIntent().getIntExtra("id",0);
         appointmentId = getIntent().getIntExtra("appointmentId",0);
         appointmentsRecyclerView = findViewById(R.id.appointmentsRecyclerView);

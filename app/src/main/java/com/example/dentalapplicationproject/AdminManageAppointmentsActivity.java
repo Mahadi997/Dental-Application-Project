@@ -64,9 +64,12 @@ public class AdminManageAppointmentsActivity extends AppCompatActivity {
                 } else {
 
 
-                    setTimeAndStatus(adminSetTime.getText().toString(),adminSetStatus.getText().toString());
+                    setTimeAndStatus(adminSetTime.getText().toString(), adminSetStatus.getText().toString());
                     Toast.makeText(getApplicationContext(), "Confirmation Successful", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(AdminManageAppointmentsActivity.this, AdminManageAppointmentsRecyclerView.class);
+                    intent.putExtra("userId", userId);
+                    intent.putExtra("appointmentId",appointmentId);
                     startActivity(intent);
                 }
 

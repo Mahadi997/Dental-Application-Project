@@ -33,18 +33,18 @@ public class AppointmentsActivity extends AppCompatActivity {
     private int dayOfWeek;
     private String s_day;
     private List<Appointments> appointmentsList;
-    int i = 0;
     int userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
+        setTitle("Request Appointment");
 
-         userId = getIntent().getIntExtra("id", 0);
         calendar = findViewById(R.id.calendar);
         showDate = findViewById(R.id.showDate);
         requestAppointment = findViewById(R.id.requestAppointment);
-
+        userId = getIntent().getIntExtra("id", 0);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -82,8 +82,10 @@ public class AppointmentsActivity extends AppCompatActivity {
                         break;
                     case 6:
                         s_day = "Friday";
+                        break;
                     case 7:
                         s_day = "Saturday";
+                        break;
 
                 }
 
@@ -92,11 +94,13 @@ public class AppointmentsActivity extends AppCompatActivity {
         });
 
 
-
         requestAppointment.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+
+
 
 
                 if (dayOfWeek == 1 || dayOfWeek == 7) {
@@ -104,16 +108,15 @@ public class AppointmentsActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "We don't work on weekends !", Toast.LENGTH_SHORT).show();
                 } else if (db_day != 0 || db_month != 0 || db_year != 0) {
 
-                    initializeTheList();
+//                    initializeTheList();
 
 
-
-                    Appointments appointments = new Appointments(userId, db_day, s_day, db_month + 1, db_year, "Pending","");
+                    Appointments appointments = new Appointments(userId, db_day, s_day, db_month + 1, db_year, "Pending", " Not Decided");
                     addAppointment(appointments);
                     Toast.makeText(getApplicationContext(), "Appointed added to my appointments", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(AppointmentsActivity.this, MainActivity.class);
                     intent.putExtra("appointmentId", getAppointmentId(userId, db_day, db_month, db_year, s_day));
-                    intent.putExtra("id",userId);
+                    intent.putExtra("id", userId);
 
                     startActivity(intent);
 

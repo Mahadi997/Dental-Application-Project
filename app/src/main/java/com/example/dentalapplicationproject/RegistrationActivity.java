@@ -53,14 +53,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
                     myDataBase.userDao().insertUser(user);
                     Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegistrationActivity.this,LoginActivity.class);
+                    Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                     startActivity(intent);
 
-                }
-                else if (!validateEmail() && !checkIfFieldsAreEmpty()) {
+                } else if (!validateEmail() && !checkIfFieldsAreEmpty()) {
                     Toast.makeText(getApplicationContext(), "Email address not valid", Toast.LENGTH_SHORT).show();
-                }
-                else if (checkIfFieldsAreEmpty()) {
+                } else if (checkIfFieldsAreEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "User exists", Toast.LENGTH_SHORT).show();

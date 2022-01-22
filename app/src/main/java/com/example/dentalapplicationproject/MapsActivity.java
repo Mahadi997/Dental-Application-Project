@@ -11,6 +11,7 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        setTitle("Maps");
 
         // Initializing fragment
 
@@ -21,14 +22,8 @@ public class MapsActivity extends AppCompatActivity {
         // Open fragment
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout,fragment)
+                .replace(R.id.frame_layout, fragment)
                 .commit();
-
-
-
-
-
-
 
 
     }

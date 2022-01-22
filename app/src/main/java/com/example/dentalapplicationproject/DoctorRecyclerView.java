@@ -23,7 +23,7 @@ public class DoctorRecyclerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_recycler_view);
-
+        setTitle("Our Doctors");
 
         doctorRecyclerView = findViewById(R.id.doctorRecyclerView);
         doctorRecyclerView.setAdapter(new DoctorRecyclerViewAdapter(getAllDoctors()));
@@ -36,19 +36,18 @@ public class DoctorRecyclerView extends AppCompatActivity {
         doctorlist = myDataBase.doctorDao().getAllDoctors();
 
 
+        if (doctorlist.isEmpty()) {
 
-            if (doctorlist.isEmpty()) {
+            myDataBase.doctorDao().insertDoctor(new Doctor("Mike", "M", "Specialist", R.drawable.mike));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Bob", "B", "Assistant", R.drawable.bob));
+            myDataBase.doctorDao().insertDoctor(new Doctor("John", "J", "Junior", R.drawable.john));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Caleb", "C", "Senior", R.drawable.caleb));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Summer", "S", "Assistant", R.drawable.summer));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Ashley", "A", "Junior", R.drawable.ashley));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Emma", "E", "Senior", R.drawable.emma));
+            myDataBase.doctorDao().insertDoctor(new Doctor("Nicole", "N", "Specialist", R.drawable.nicole));
 
-                myDataBase.doctorDao().insertDoctor(new Doctor("Mike", "M", "Specialist", R.drawable.mike));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Bob", "B", "Assistant", R.drawable.bob));
-                myDataBase.doctorDao().insertDoctor(new Doctor("John", "J", "Junior", R.drawable.john));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Caleb", "C", "Senior", R.drawable.caleb));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Summer", "S", "Assistant", R.drawable.summer));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Ashley", "A", "Junior", R.drawable.ashley));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Emma", "E", "Senior", R.drawable.emma));
-                myDataBase.doctorDao().insertDoctor(new Doctor("Nicole", "N", "Specialist", R.drawable.nicole));
-
-            }
+        }
 
         return myDataBase.doctorDao().getAllDoctors();
     }

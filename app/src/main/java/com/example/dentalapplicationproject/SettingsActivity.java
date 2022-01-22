@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        setTitle("Settings");
         settingsOldPassword = findViewById(R.id.settingsOldPassword);
         settingsNewPassword = findViewById(R.id.settingsNewPassword);
         settingsReNewPassword = findViewById(R.id.settingsRePassword);
@@ -101,7 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
         userList = myDataBase.userDao().getUserById(userId);
 
-        for (User user : userList){
+        for (User user : userList) {
             user.setPassword(settingsNewPassword.getText().toString());
             myDataBase.userDao().updateUser(user);
 
