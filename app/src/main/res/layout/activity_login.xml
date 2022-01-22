@@ -15,14 +15,13 @@
         android:layout_marginBottom="150dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="@string/email"
+        android:hint="email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/logPassword"
@@ -38,8 +37,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logEmail"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/logEmail" />
 
     <Button
         android:id="@+id/logLoginBtn"

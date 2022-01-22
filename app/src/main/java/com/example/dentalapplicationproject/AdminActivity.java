@@ -31,6 +31,8 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(AdminActivity.this,AdminAppointmentsRecyclerView.class);
+                startActivity(intent);
             }
         });
 

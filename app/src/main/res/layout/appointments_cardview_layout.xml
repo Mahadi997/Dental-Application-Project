@@ -26,7 +26,7 @@
             tools:srcCompat="@drawable/clock" />
 
         <TextView
-            android:id="@+id/aName"
+            android:id="@+id/adminAppointmentsNameSurname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/cardStatus"
+            android:id="@+id/adminAppointmentsStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

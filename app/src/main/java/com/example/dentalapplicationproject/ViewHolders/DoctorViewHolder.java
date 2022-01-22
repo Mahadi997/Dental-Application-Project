@@ -20,7 +20,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
     public DoctorViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        cardDoctorName = itemView.findViewById(R.id.aName);
+        cardDoctorName = itemView.findViewById(R.id.adminAppointmentsNameSurname);
         cardDoctorDescription = itemView.findViewById(R.id.aSurname);
         cardDoctorImage = itemView.findViewById(R.id.aUserImage);
 

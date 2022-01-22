@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dentalapplicationproject.R;
 
-public class AppointmentsViewHolder extends RecyclerView.ViewHolder{
+public class AdminAppointmentsViewHolder extends RecyclerView.ViewHolder {
 
 
     private TextView cardAppointmentInfo;
@@ -17,12 +17,14 @@ public class AppointmentsViewHolder extends RecyclerView.ViewHolder{
     private ImageView cardAppointmentsImage;
 
 
-    public AppointmentsViewHolder(@NonNull View itemView) {
+
+
+    public AdminAppointmentsViewHolder(@NonNull View itemView) {
         super(itemView);
 
         cardAppointmentInfo = itemView.findViewById(R.id.adminAppointmentsNameSurname);
         cardAppointmentsImage= itemView.findViewById(R.id.aUserImage);
-cardStatus = itemView.findViewById(R.id.adminAppointmentsStatus);
+        cardStatus = itemView.findViewById(R.id.adminAppointmentsStatus);
 
     }
 
@@ -31,11 +33,11 @@ cardStatus = itemView.findViewById(R.id.adminAppointmentsStatus);
         return cardAppointmentInfo;
     }
 
-    public ImageView getCardAppointmentsImage() {
-        return cardAppointmentsImage;
-    }
-
     public TextView getCardStatus() {
         return cardStatus;
+    }
+
+    public ImageView getCardAppointmentsImage() {
+        return cardAppointmentsImage;
     }
 }
