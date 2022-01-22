@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,12 +23,12 @@ public class AdminManageAppointmentsActivity extends AppCompatActivity {
     private TextView adminShowDareAndTime;
     private TextView adminShowStatus;
     private EditText adminSetTime;
-    private EditText adminSetStatus;
     private Button adminConfirmAppointment;
     private int userId;
     private int appointmentId;
     private List<Appointments> appointmentsList;
     private String userFirstNameAndLastName;
+    private CheckBox adminApproveAppointmentCheckBox;
 
 
     @Override
@@ -40,7 +41,7 @@ public class AdminManageAppointmentsActivity extends AppCompatActivity {
         adminShowDareAndTime = findViewById(R.id.adminShowDateAndTime);
         adminShowStatus = findViewById(R.id.adminShowStatus);
         adminSetTime = findViewById(R.id.adminSetTime);
-        adminSetStatus = findViewById(R.id.adminSetStatus);
+        adminApproveAppointmentCheckBox = findViewById(R.id.adminApproveAppointmentCheckBox);
         adminConfirmAppointment = findViewById(R.id.adminConfirmAppointment);
 
 
@@ -57,14 +58,14 @@ public class AdminManageAppointmentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (adminSetTime.getText().toString().isEmpty() || adminSetStatus.getText().toString().isEmpty()) {
+                if (adminSetTime.getText().toString().isEmpty() || !adminApproveAppointmentCheckBox.isChecked()) {
 
-                    Toast.makeText(getApplicationContext(), "Please enter time and status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please enter time and approve appointment status", Toast.LENGTH_SHORT).show();
 
                 } else {
 
 
-                    setTimeAndStatus(adminSetTime.getText().toString(), adminSetStatus.getText().toString());
+                    setTimeAndStatus(adminSetTime.getText().toString(), "Approved");
                     Toast.makeText(getApplicationContext(), "Confirmation Successful", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(AdminManageAppointmentsActivity.this, AdminManageAppointmentsRecyclerView.class);
