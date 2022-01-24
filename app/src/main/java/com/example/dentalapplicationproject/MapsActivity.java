@@ -19,7 +19,7 @@ public class MapsActivity extends AppCompatActivity {
         Fragment fragment = new MapFragment();
 
 
-        // Open fragment
+        // Opening fragment
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment)
