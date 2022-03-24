@@ -14,6 +14,7 @@ public class AdminActivity extends AppCompatActivity {
     CardView adminAppointments;
     CardView adminShowUsers;
     CardView adminLogout;
+    CardView adminApprovedAppointments;
 
 
     @Override
@@ -25,6 +26,7 @@ public class AdminActivity extends AppCompatActivity {
         adminAppointments = findViewById(R.id.adminAppointments);
         adminShowUsers = findViewById(R.id.adminShowUsers);
         adminLogout = findViewById(R.id.adminLogout);
+        adminApprovedAppointments = findViewById(R.id.adminApprovedAppointments);
 
 
         adminAppointments.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +40,15 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+adminApprovedAppointments.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
+
+       Intent intent = new Intent(AdminActivity.this,AdminApprovedAppointmentsRecyclerView.class);
+       startActivity(intent);
+ }
+});
 
 
         adminShowUsers.setOnClickListener(new View.OnClickListener() {

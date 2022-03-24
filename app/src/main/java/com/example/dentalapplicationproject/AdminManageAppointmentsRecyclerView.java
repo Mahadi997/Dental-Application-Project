@@ -31,7 +31,7 @@ public class AdminManageAppointmentsRecyclerView extends AppCompatActivity {
 
         setOnClickListener();
         adminManageAppointmentsRecyclerView = findViewById(R.id.adminManageAppointmentsRecyclerView);
-        adminManageAppointmentsRecyclerView.setAdapter(new AdminManageAppointmentsRecyclerAdapter(getAllAppointments(), listener, getAllUsers()));
+        adminManageAppointmentsRecyclerView.setAdapter(new AdminManageAppointmentsRecyclerAdapter(getPendingAppointments("Pending"), listener, getAllUsers()));
         adminManageAppointmentsRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
 
@@ -53,10 +53,10 @@ public class AdminManageAppointmentsRecyclerView extends AppCompatActivity {
     }
 
 
-    private List<Appointments> getAllAppointments() {
+    private List<Appointments> getPendingAppointments(String status) {
 
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
-        appointmentsList = myDataBase.appointmentsDao().getAllAppointments();
+        appointmentsList = myDataBase.appointmentsDao().getAppointmentByStatus(status);
 
         return appointmentsList;
     }

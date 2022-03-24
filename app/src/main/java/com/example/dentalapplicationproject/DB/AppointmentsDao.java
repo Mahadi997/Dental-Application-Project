@@ -29,4 +29,10 @@ public interface AppointmentsDao {
 
     @Query("SELECT * FROM appointments WHERE id = :id AND userId = :userId")
     List<Appointments> getAppointmentByAppointmentIdAndUserId(int id, int userId);
+
+
+
+    @Query("SELECT * FROM appointments WHERE status = :status")
+    List<Appointments> getAppointmentByStatus(String status);
+
 }

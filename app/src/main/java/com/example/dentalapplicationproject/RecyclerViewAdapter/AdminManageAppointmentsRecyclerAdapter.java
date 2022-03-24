@@ -29,6 +29,7 @@ public class AdminManageAppointmentsRecyclerAdapter extends RecyclerView.Adapter
         this.userList = userList;
     }
 
+
     public class AdminManageAppointmentsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView adminAppointmentDate;
