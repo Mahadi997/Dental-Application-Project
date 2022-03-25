@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.dentalapplicationproject.DB.Appointments;
 import com.example.dentalapplicationproject.DB.Doctor;
@@ -35,6 +37,15 @@ public class AppointmentsRecyclerView extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        myIntent.putExtra("id",userId);
+        startActivityForResult(myIntent, 0);
+        return true;
+    }
+
 
     private List<Appointments> getAppointmentsById(int userId) {
 

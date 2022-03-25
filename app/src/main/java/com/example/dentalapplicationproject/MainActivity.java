@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.putExtra("id",userId);
                 startActivity(intent);
 
             }
@@ -86,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DoctorRecyclerView.class);
+                intent.putExtra("id", userId);
                 startActivity(intent);
             }
         });
@@ -94,6 +94,7 @@ locationCard.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
 
         Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        intent.putExtra("id", userId);
         startActivity(intent);
 
     }

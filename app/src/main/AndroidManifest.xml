@@ -19,17 +19,15 @@
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
             android:name=".AdminApprovedAppointmentsRecyclerView"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminActivity"
+            />
         <activity
             android:name=".AdminManageAppointmentsRecyclerView"
             android:exported="false"
             android:parentActivityName=".AdminActivity" />
         <activity
             android:name=".AdminManageAppointmentsActivity"
-            android:exported="false"
-            android:parentActivityName=".AdminActivity" />
-        <activity
-            android:name=".AdminShowUserRecyclerView"
             android:exported="false"
             android:parentActivityName=".AdminActivity" />
         <activity

@@ -17,7 +17,8 @@ import com.example.dentalapplicationproject.DB.MyDataBase;
 
 import java.util.List;
 
-public class AdminManageAppointmentsActivity extends AppCompatActivity {
+public class
+AdminManageAppointmentsActivity extends AppCompatActivity {
 
     private TextView adminShowNameSurname;
     private TextView adminShowDareAndTime;

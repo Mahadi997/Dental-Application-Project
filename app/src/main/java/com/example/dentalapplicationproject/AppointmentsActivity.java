@@ -6,6 +6,7 @@ import androidx.constraintlayout.motion.utils.ViewSpline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -134,6 +135,15 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        myIntent.putExtra("id",userId);
+        startActivityForResult(myIntent, 0);
+        return true;
+    }
+
+
     private void addAppointment(Appointments appointment) {
 
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
@@ -161,10 +171,9 @@ public class AppointmentsActivity extends AppCompatActivity {
         return 0;
     }
 
-    private void initializeTheList() {
-
-        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
-        appointmentsList = myDataBase.appointmentsDao().getAllAppointments();
+    private int userIdFunction() {
+        userId = getIntent().getIntExtra("id", 0);
+return userId;
 
     }
 

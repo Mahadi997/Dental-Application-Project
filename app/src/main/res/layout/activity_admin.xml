@@ -25,7 +25,7 @@
         android:layout_height="0dp"
         android:layout_weight="4"
         app:columnCount="2"
-        app:rowCount="2">
+        app:rowCount="3">
 
 
         <androidx.cardview.widget.CardView
@@ -56,6 +56,34 @@
                 android:layout_margin="10dp"
                 android:text="Pending" />
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/adminApprovedAppointments"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <ImageView
+                android:id="@+id/appointmenttIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="35dp"
+                app:srcCompat="@drawable/approvedapp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/approvedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="10dp"
+                android:text="Approved" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/adminShowUsers"
@@ -74,10 +102,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
                 android:layout_margin="10dp"
-                android:text="Show users" />
+                android:text="Users" />
 
             <ImageView
-                android:id="@+id/ourDoctorsIcon"
+                android:id="@+id/usersIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -88,6 +116,41 @@
 
         </androidx.cardview.widget.CardView>
 
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/adminShowDoctors"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <TextView
+                android:id="@+id/docc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="10dp"
+                android:text="Doctors" />
+
+            <ImageView
+                android:id="@+id/DoctorsIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="35dp"
+                app:srcCompat="@drawable/doocsss"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/adminLogout"
@@ -118,34 +181,6 @@
                 tools:ignore="ContentDescription" />
 
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/adminApprovedAppointments"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="20dp"
-            android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
-
-            <ImageView
-                android:id="@+id/appointmenttIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="35dp"
-                app:srcCompat="@drawable/approvedapp"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/approvedText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_margin="10dp"
-                android:text="Approved" />
         </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>

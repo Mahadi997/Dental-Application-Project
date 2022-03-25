@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dentalapplicationproject.DB.Appointments;
 import com.example.dentalapplicationproject.DB.User;
 import com.example.dentalapplicationproject.R;
-import com.example.dentalapplicationproject.ViewHolders.AdminShowUsersViewHolder;
-import com.example.dentalapplicationproject.ViewHolders.AppointmentsViewHolder;
 import com.example.dentalapplicationproject.ViewHolders.ApprovedAppointmentsViewHolder;
 
 import java.util.List;

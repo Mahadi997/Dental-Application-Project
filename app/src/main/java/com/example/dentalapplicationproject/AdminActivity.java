@@ -15,6 +15,7 @@ public class AdminActivity extends AppCompatActivity {
     CardView adminShowUsers;
     CardView adminLogout;
     CardView adminApprovedAppointments;
+    CardView adminShowDoctors;
 
 
     @Override
@@ -27,6 +28,7 @@ public class AdminActivity extends AppCompatActivity {
         adminShowUsers = findViewById(R.id.adminShowUsers);
         adminLogout = findViewById(R.id.adminLogout);
         adminApprovedAppointments = findViewById(R.id.adminApprovedAppointments);
+        adminShowDoctors = findViewById(R.id.adminShowDoctors);
 
 
         adminAppointments.setOnClickListener(new View.OnClickListener() {
@@ -50,17 +52,29 @@ adminApprovedAppointments.setOnClickListener(new View.OnClickListener() {
  }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         adminShowUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(AdminActivity.this,AdminShowUserRecyclerView.class);
-                startActivity(intent);
+
 
             }
         });
 
+
+
+        adminShowDoctors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         adminLogout.setOnClickListener(new View.OnClickListener() {
