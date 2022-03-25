@@ -60,6 +60,10 @@ adminApprovedAppointments.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
 
+                Intent intent = new Intent(AdminActivity.this,AdminShowUsersRecyclerView.class);
+                startActivity(intent);
+
+
 
             }
         });

@@ -36,7 +36,6 @@ public class MapFragment extends Fragment {
 
         //Async map
 
-
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -45,7 +44,7 @@ public class MapFragment extends Fragment {
 
                 mMap = googleMap;
 
-
+                // Add a marker in Sydney and move the camera
                 LatLng sarajevo = new LatLng(43.81876, 18.31210); // Burch's location
                 mMap.addMarker(new MarkerOptions().position(sarajevo).title("International Burch University"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(sarajevo));

@@ -18,10 +18,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
-            android:name=".AdminApprovedAppointmentsRecyclerView"
+            android:name=".AdminShowUsersRecyclerView"
             android:exported="false"
             android:parentActivityName=".AdminActivity"
             />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBXkWeCPdSfNJ2H82pz7Ok8IQrUdZC8OI0" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AdminApprovedAppointmentsRecyclerView"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
         <activity
             android:name=".AdminManageAppointmentsRecyclerView"
             android:exported="false"
@@ -35,15 +48,6 @@
             android:exported="false" />
         <activity
             android:name=".AppointmentsRecyclerView"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBXkWeCPdSfNJ2H82pz7Ok8IQrUdZC8OI0" />
-
-        <activity
-            android:name=".MapsActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
