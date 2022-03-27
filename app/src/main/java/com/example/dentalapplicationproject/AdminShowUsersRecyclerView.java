@@ -1,7 +1,6 @@
 package com.example.dentalapplicationproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,13 +48,13 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
         addUserBtn = findViewById(R.id.addUserBtn);
         Dialog dialog = new Dialog(AdminShowUsersRecyclerView.this);
         dialog.setContentView(R.layout.add_user_dialog);
-        dialogFirstname = dialog.findViewById(R.id.dialogFirstname);
-        dialogLastname = dialog.findViewById(R.id.dialogLastname);
-        dialogCity = dialog.findViewById(R.id.dialogCity);
-        dialogAddress = dialog.findViewById(R.id.dialogAddress);
-        dialogEmail = dialog.findViewById(R.id.dialogEmail);
-        dialogPassword = dialog.findViewById(R.id.dialogPassword);
-        dialogAddUserBtn = dialog.findViewById(R.id.dialogAddUserBtn);
+        dialogFirstname = dialog.findViewById(R.id.updateDialogFirstname);
+        dialogLastname = dialog.findViewById(R.id.updateDialogLastname);
+        dialogCity = dialog.findViewById(R.id.updateDialogCity);
+        dialogAddress = dialog.findViewById(R.id.updateDialogAddress);
+        dialogEmail = dialog.findViewById(R.id.updateDialogEmail);
+        dialogPassword = dialog.findViewById(R.id.updateDialogPassword);
+        dialogAddUserBtn = dialog.findViewById(R.id.updateDialogAddUserBtn);
 
 
 
@@ -95,12 +94,14 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
 
                             User user = new User(dialogFirstname.getText().toString(),dialogLastname.getText().toString(),dialogCity.getText().toString(),dialogAddress.getText().toString(),dialogEmail.getText().toString(),dialogPassword.getText().toString());
                             addUser(user);
+                            userList = getAllUsers();
                             adapter.notifyItemInserted(userList.size() - 1); // last index
-//                            adminShowUsersRecyclerView.scrollToPosition(userList.size() - 1);
+
 //                            dialog.dismiss();
                             Toast.makeText(AdminShowUsersRecyclerView.this, "User Added Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(AdminShowUsersRecyclerView.this, AdminShowUsersRecyclerView.class);
                             startActivity(intent);
+//                            adminShowUsersRecyclerView.scrollToPosition(userList.size() - 1);
 
                         }
 

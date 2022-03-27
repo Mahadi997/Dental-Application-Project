@@ -20,68 +20,72 @@
         android:text="Add User"
         />
 
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#fff"
-    android:padding="11dp"
-    android:id="@+id/dialogFirstname"
-    android:hint="First Name"
-    />
+    <EditText
+        android:id="@+id/updateDialogFirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:hint="First Name"
+        android:minHeight="48dp"
+        android:padding="11dp" />
 
     <EditText
+        android:id="@+id/updateDialogLastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/dialogLastname"
         android:layout_marginTop="11dp"
+        android:background="#fff"
         android:hint="Last Name"
-        />
+        android:minHeight="48dp"
+        android:padding="11dp" />
+
     <EditText
+        android:id="@+id/updateDialogCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/dialogCity"
         android:layout_marginTop="11dp"
+        android:background="#fff"
         android:hint="City"
-        />
+        android:minHeight="48dp"
+        android:padding="11dp" />
+
     <EditText
+        android:id="@+id/updateDialogAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/dialogAddress"
         android:layout_marginTop="11dp"
+        android:background="#fff"
         android:hint="Address"
-        />
+        android:minHeight="48dp"
+        android:padding="11dp" />
+
     <EditText
+        android:id="@+id/updateDialogEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/dialogEmail"
         android:layout_marginTop="11dp"
+        android:background="#fff"
         android:hint="Email"
-        />
+        android:minHeight="48dp"
+        android:padding="11dp" />
+
     <EditText
+        android:id="@+id/updateDialogPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/dialogPassword"
         android:layout_marginTop="11dp"
+        android:background="#fff"
         android:hint="Password"
         android:inputType="textPassword"
-        />
+        android:minHeight="48dp"
+        android:padding="11dp" />
 
 
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Add"
-    android:id="@+id/dialogAddUserBtn"
+    android:id="@+id/updateDialogAddUserBtn"
     android:backgroundTint="#fff"
     android:layout_marginTop="11dp"
     android:textColor="@color/design_default_color_secondary"

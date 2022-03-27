@@ -61,6 +61,27 @@ import androidx.room.PrimaryKey;
         public void setPassword(String password) {
             this.password = password;
         }
+
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
     }
 
 
