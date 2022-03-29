@@ -73,7 +73,8 @@ adminApprovedAppointments.setOnClickListener(new View.OnClickListener() {
         adminShowDoctors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(AdminActivity.this,AdminShowDoctorsRecyclerView.class);
+                startActivity(intent);
             }
         });
 

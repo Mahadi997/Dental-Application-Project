@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dentalapplicationproject.DB.Doctor;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 import com.example.dentalapplicationproject.DB.User;
 
@@ -25,6 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText regPassword;
     private Button regRegisterBtn;
     private List<User> userList;
+    private List<Doctor> doctorList;
 
 
     @Override
@@ -46,8 +48,11 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (checkIfUserEmailIsTheSameAsDoctorEmail()) {
 
-                if (validateEmail() && !checkIfFieldsAreEmpty() && !checkIfUserExists()) {
+                    Toast.makeText(RegistrationActivity.this, "Please change your email ", Toast.LENGTH_SHORT).show();
+
+                } else if (validateEmail() && !checkIfFieldsAreEmpty() && !checkIfUserExists()) {
 
                     User user = new User(regFirstName.getText().toString(), regLastName.getText().toString(), regCity.getText().toString(), regAddress.getText().toString(), regEmail.getText().toString(), regPassword.getText().toString());
                     MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
@@ -102,6 +107,24 @@ public class RegistrationActivity extends AppCompatActivity {
 
         }
         return false;
+    }
+
+
+    private boolean checkIfUserEmailIsTheSameAsDoctorEmail() {
+
+        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+        doctorList = myDataBase.doctorDao().getDoctorByEmail(regEmail.getText().toString());
+
+
+        if (doctorList.isEmpty()) {
+
+            return false;
+
+        } else {
+
+            return true;
+        }
+
     }
 
 }

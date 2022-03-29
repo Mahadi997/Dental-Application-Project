@@ -27,6 +27,7 @@ public interface DoctorDao {
     @Query("SELECT * FROM doctor WHERE id=:id")
     List<Doctor> getDoctorById(int id);
 
-
+    @Query("SELECT * FROM doctor WHERE email=:email")
+    List<Doctor> getDoctorByEmail(String email);
 
 }

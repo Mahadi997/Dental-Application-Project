@@ -21,7 +21,7 @@
         />
 
     <EditText
-        android:id="@+id/updateDialogFirstname"
+        android:id="@+id/dialogFirstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
@@ -30,7 +30,7 @@
         android:padding="11dp" />
 
     <EditText
-        android:id="@+id/updateDialogLastname"
+        android:id="@+id/dialogLastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -40,7 +40,7 @@
         android:padding="11dp" />
 
     <EditText
-        android:id="@+id/updateDialogCity"
+        android:id="@+id/dialogCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -50,7 +50,7 @@
         android:padding="11dp" />
 
     <EditText
-        android:id="@+id/updateDialogAddress"
+        android:id="@+id/dialogAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -60,7 +60,7 @@
         android:padding="11dp" />
 
     <EditText
-        android:id="@+id/updateDialogEmail"
+        android:id="@+id/dialogEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -70,7 +70,7 @@
         android:padding="11dp" />
 
     <EditText
-        android:id="@+id/updateDialogPassword"
+        android:id="@+id/dialogPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -85,7 +85,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Add"
-    android:id="@+id/updateDialogAddUserBtn"
+    android:id="@+id/dialogAddUserBtn"
     android:backgroundTint="#fff"
     android:layout_marginTop="11dp"
     android:textColor="@color/design_default_color_secondary"

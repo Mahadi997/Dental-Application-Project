@@ -36,7 +36,7 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorViewHo
 
         holder.getCardDoctorName().setText(doctorList.get(position).getName());
         holder.getCardDoctorDescription().setText(doctorList.get(position).getDescription());
-        holder.getCardDoctorImage().setImageResource(doctorList.get(position).getImage());
+        holder.getCardDoctorImage().setImageResource(R.drawable.dentist);
 
 
     }

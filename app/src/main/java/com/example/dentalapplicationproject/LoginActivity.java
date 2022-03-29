@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dentalapplicationproject.DB.Doctor;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 import com.example.dentalapplicationproject.DB.User;
 
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText logPassword;
     private Button logLoginButton;
     private List<User> userList;
+    private List<Doctor> doctorList;
     private Button logRegisterBtn;
 
     @Override
@@ -44,7 +46,18 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                     startActivity(intent);
 
-                } else if (validateEmail() && !checkIfFieldsAreEmpty() && checkIfUserExists()) {
+                }
+                else if (validateEmail() && !checkIfFieldsAreEmpty() && checkIfDoctorExists() ){
+
+                    Intent intent = new Intent(LoginActivity.this,DoctorActivity.class);
+                    intent.putExtra("id", getDoctorIdByEmail(logEmail.getText().toString()));
+                    startActivity(intent);
+
+
+                }
+
+
+                else if (validateEmail() && !checkIfFieldsAreEmpty() && checkIfUserExists()) {
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("id", getUserIdByEmail(logEmail.getText().toString()));
@@ -118,6 +131,33 @@ public class LoginActivity extends AppCompatActivity {
 
         }
         return 0;
+    }
+
+    private int getDoctorIdByEmail(String email) {
+
+        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+        doctorList = myDataBase.doctorDao().getDoctorByEmail(logEmail.getText().toString());
+
+        for (Doctor doctor : doctorList) {
+            if (doctor.getEmail().equals(email)) {
+                return doctor.getId();
+            }
+
+        }
+        return 0;
+    }
+    private boolean checkIfDoctorExists() {
+
+        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+        doctorList = myDataBase.doctorDao().getDoctorByEmail(logEmail.getText().toString());
+
+        for (Doctor doctor : doctorList) {
+            if (doctor.getEmail().equals(logEmail.getText().toString()) && doctor.getPassword().equals(logPassword.getText().toString())) {
+                return true;
+            }
+
+        }
+        return false;
     }
 
 

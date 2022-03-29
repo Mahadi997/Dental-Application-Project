@@ -9,67 +9,65 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/txtTitle"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="21dp"
         android:gravity="center"
-        android:text="Update User"
         android:textColor="#fff"
         android:textSize="32sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:id="@+id/txtTitle"
+        android:layout_margin="21dp"
+        android:text="Add Doctor"
+        />
 
     <EditText
-        android:id="@+id/dialogFirstname"
+        android:id="@+id/doctorDialogFirstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:hint="First Name"
         android:minHeight="48dp"
-        android:padding="11dp" />
+        android:padding="11dp"
+        />
 
     <EditText
-        android:id="@+id/dialogLastname"
+        android:id="@+id/doctorDialogLastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:background="#fff"
         android:hint="Last Name"
         android:minHeight="48dp"
-        android:padding="11dp" />
+        android:padding="11dp"
+       />
+
 
     <EditText
-        android:id="@+id/dialogCity"
+        android:id="@+id/doctorDialogDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:background="#fff"
-        android:hint="City"
+        android:hint="Description"
         android:minHeight="48dp"
-        android:padding="11dp" />
+        android:padding="11dp"
+        />
+
 
     <EditText
-        android:id="@+id/dialogAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:background="#fff"
-        android:hint="Address"
-        android:minHeight="48dp"
-        android:padding="11dp" />
-
-    <EditText
-        android:id="@+id/dialogEmail"
+        android:id="@+id/doctorDialogEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:background="#fff"
         android:hint="Email"
         android:minHeight="48dp"
-        android:padding="11dp" />
+        android:padding="11dp"
+       />
 
     <EditText
-        android:id="@+id/dialogPassword"
+        android:id="@+id/doctorDialogPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -77,18 +75,19 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:padding="11dp" />
+        android:padding="11dp"
+     />
 
 
     <Button
-        android:id="@+id/dialogAddUserBtn"
+        android:id="@+id/myBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="11dp"
         android:backgroundTint="#fff"
-        android:text="Update"
-        android:textColor="@color/design_default_color_secondary" />
+        android:text="Add"
+        android:textColor="#00838F" />
 
 
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dentalapplicationproject.DB.Doctor;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 import com.example.dentalapplicationproject.DB.User;
 import com.example.dentalapplicationproject.RecyclerViewAdapter.AdminManageUsersRecyclerAdapter;
@@ -34,6 +35,7 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
     EditText dialogEmail;
     EditText dialogPassword;
     Button dialogAddUserBtn;
+    private List<Doctor> doctorList;
 
 
     @Override
@@ -41,36 +43,32 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_show_users_recycler_view);
         userList = getAllUsers();
+
         adminShowUsersRecyclerView = findViewById(R.id.adminShowUsersRecyclerView);
         adminShowUsersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         AdminManageUsersRecyclerAdapter adapter = new AdminManageUsersRecyclerAdapter(this, userList);
         adminShowUsersRecyclerView.setAdapter(adapter);
-        addUserBtn = findViewById(R.id.addUserBtn);
+
+
+
         Dialog dialog = new Dialog(AdminShowUsersRecyclerView.this);
         dialog.setContentView(R.layout.add_user_dialog);
-        dialogFirstname = dialog.findViewById(R.id.updateDialogFirstname);
-        dialogLastname = dialog.findViewById(R.id.updateDialogLastname);
-        dialogCity = dialog.findViewById(R.id.updateDialogCity);
-        dialogAddress = dialog.findViewById(R.id.updateDialogAddress);
-        dialogEmail = dialog.findViewById(R.id.updateDialogEmail);
-        dialogPassword = dialog.findViewById(R.id.updateDialogPassword);
-        dialogAddUserBtn = dialog.findViewById(R.id.updateDialogAddUserBtn);
 
+        addUserBtn = findViewById(R.id.addUserBtn);
+
+        dialogFirstname = dialog.findViewById(R.id.dialogFirstname);
+        dialogLastname = dialog.findViewById(R.id.dialogLastname);
+        dialogCity = dialog.findViewById(R.id.dialogCity);
+        dialogAddress = dialog.findViewById(R.id.dialogAddress);
+        dialogEmail = dialog.findViewById(R.id.dialogEmail);
+        dialogPassword = dialog.findViewById(R.id.dialogPassword);
+        dialogAddUserBtn = dialog.findViewById(R.id.dialogAddUserBtn);
 
 
         addUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                Dialog dialog = new Dialog(AdminShowUsersRecyclerView.this);
-//                dialog.setContentView(R.layout.add_user_dialog);
-//                EditText dialogFirstname = dialog.findViewById(R.id.dialogFirstname);
-//                EditText dialogLastname = dialog.findViewById(R.id.dialogLastname);
-//                EditText dialogCity = dialog.findViewById(R.id.dialogCity);
-//                EditText dialogAddress = dialog.findViewById(R.id.dialogAddress);
-//                EditText dialogEmail = dialog.findViewById(R.id.dialogEmail);
-//                EditText dialogPassword = dialog.findViewById(R.id.dialogPassword);
-//                Button dialogAddUserBtn = dialog.findViewById(R.id.dialogAddUserBtn);
                 dialog.show();
 
                 dialogAddUserBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,21 +76,25 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
                     public void onClick(View v) {
 
 
-
-                        if (checkIfUserExists()){
+                        if (checkIfUserExists()) {
 
                             Toast.makeText(AdminShowUsersRecyclerView.this, "User Already Exists !", Toast.LENGTH_SHORT).show();
 
                         }
-                        else if (!validateEmail()){
 
-                        Toast.makeText(AdminShowUsersRecyclerView.this, "Please enter a valid email ", Toast.LENGTH_SHORT).show();
+                        else if (checkIfUserEmailIsTheSameAsDoctorEmail()){
+
+
+                            Toast.makeText(AdminShowUsersRecyclerView.this, "System user is using this email !", Toast.LENGTH_SHORT).show();
 
                         }
+                        else if (!validateEmail()) {
 
-                        else if (!dialogFirstname.getText().toString().isEmpty() && !dialogLastname.getText().toString().isEmpty() && !dialogCity.getText().toString().isEmpty() && !dialogAddress.getText().toString().isEmpty() && !dialogEmail.getText().toString().isEmpty() && !dialogPassword.getText().toString().isEmpty()) {
+                            Toast.makeText(AdminShowUsersRecyclerView.this, "Please enter a valid email ", Toast.LENGTH_SHORT).show();
 
-                            User user = new User(dialogFirstname.getText().toString(),dialogLastname.getText().toString(),dialogCity.getText().toString(),dialogAddress.getText().toString(),dialogEmail.getText().toString(),dialogPassword.getText().toString());
+                        } else if (!dialogFirstname.getText().toString().isEmpty() && !dialogLastname.getText().toString().isEmpty() && !dialogCity.getText().toString().isEmpty() && !dialogAddress.getText().toString().isEmpty() && !dialogEmail.getText().toString().isEmpty() && !dialogPassword.getText().toString().isEmpty()) {
+
+                            User user = new User(dialogFirstname.getText().toString(), dialogLastname.getText().toString(), dialogCity.getText().toString(), dialogAddress.getText().toString(), dialogEmail.getText().toString(), dialogPassword.getText().toString());
                             addUser(user);
                             userList = getAllUsers();
                             adapter.notifyItemInserted(userList.size() - 1); // last index
@@ -103,9 +105,7 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
                             startActivity(intent);
 //                            adminShowUsersRecyclerView.scrollToPosition(userList.size() - 1);
 
-                        }
-
-                        else{
+                        } else {
                             Toast.makeText(AdminShowUsersRecyclerView.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
                         }
 
@@ -133,6 +133,7 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
         myDataBase.userDao().insertUser(user);
 
     }
+
     private boolean checkIfUserExists() {
 
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
@@ -154,6 +155,23 @@ public class AdminShowUsersRecyclerView extends AppCompatActivity {
         }
 
         return false;
+
+    }
+
+    private boolean checkIfUserEmailIsTheSameAsDoctorEmail() {
+
+        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+        doctorList = myDataBase.doctorDao().getDoctorByEmail(dialogEmail.getText().toString());
+
+
+        if (doctorList.isEmpty()) {
+
+            return false;
+
+        } else {
+
+            return true;
+        }
 
     }
 

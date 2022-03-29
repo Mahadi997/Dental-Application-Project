@@ -1,7 +1,9 @@
 package com.example.dentalapplicationproject.RecyclerViewAdapter;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -14,12 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dentalapplicationproject.AdminActivity;
 import com.example.dentalapplicationproject.AdminShowUsersRecyclerView;
+import com.example.dentalapplicationproject.DB.Appointments;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 import com.example.dentalapplicationproject.DB.User;
 import com.example.dentalapplicationproject.R;
@@ -29,8 +30,11 @@ import java.util.List;
 public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminManageUsersRecyclerAdapter.ViewHolder> {
 
     Context context;
+    List<User> deleteUserList;
     List<User> userList;
     List<User> userEmailList;
+     List<User> testUserList;
+     List<Appointments> deleteAppointmentList;
     String currentUserEmail;
     EditText updateDialogFirstname;
     EditText updateDialogLastname;
@@ -39,6 +43,7 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
     EditText updateDialogEmail;
     EditText updateDialogPassword;
     Button updateDialogAddUserBtn;
+    int appointmentUserId;
 
     public AdminManageUsersRecyclerAdapter(Context context, List<User> userList) {
         this.context = context;
@@ -57,7 +62,7 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.getAdminUserImage().setImageResource(R.drawable.mann);
+        holder.getAdminUserImage().setImageResource(R.drawable.user);
         holder.getAdminUserNameAndSurname().setText(getUserFirstAndLastName(userList.get(position).getId()));
 
         holder.getUserRow().setOnClickListener(new View.OnClickListener() {
@@ -69,13 +74,13 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
                 dialog.setContentView(R.layout.update_user_dialog);
                 dialog.show();
 
-                updateDialogFirstname = dialog.findViewById(R.id.updateDialogFirstname);
-                updateDialogLastname = dialog.findViewById(R.id.updateDialogLastname);
-                updateDialogCity = dialog.findViewById(R.id.updateDialogCity);
-                updateDialogAddress = dialog.findViewById(R.id.updateDialogAddress);
-                updateDialogEmail = dialog.findViewById(R.id.updateDialogEmail);
-                updateDialogPassword = dialog.findViewById(R.id.updateDialogPassword);
-                updateDialogAddUserBtn = dialog.findViewById(R.id.updateDialogAddUserBtn);
+                updateDialogFirstname = dialog.findViewById(R.id.dialogFirstname);
+                updateDialogLastname = dialog.findViewById(R.id.dialogLastname);
+                updateDialogCity = dialog.findViewById(R.id.dialogCity);
+                updateDialogAddress = dialog.findViewById(R.id.dialogAddress);
+                updateDialogEmail = dialog.findViewById(R.id.dialogEmail);
+                updateDialogPassword = dialog.findViewById(R.id.dialogPassword);
+                updateDialogAddUserBtn = dialog.findViewById(R.id.dialogAddUserBtn);
 
                 updateDialogFirstname.setText(userList.get(holder.getAdapterPosition()).getFirstName());
                 updateDialogLastname.setText(userList.get(holder.getAdapterPosition()).getLastName());
@@ -97,6 +102,8 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
                             userEmailList = getAllUsers();
                             currentUserEmail = userEmailList.get(holder.getAdapterPosition()).getEmail();
 
+
+
                             updateUser(currentUserEmail,updateDialogFirstname.getText().toString(), updateDialogLastname.getText().toString(), updateDialogCity.getText().toString(), updateDialogAddress.getText().toString(), updateDialogEmail.getText().toString(), updateDialogPassword.getText().toString());
                             Toast.makeText(context, "User Updated Successfully !", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
@@ -116,6 +123,46 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
 
             }
         });
+
+
+    holder.getUserRow().setOnLongClickListener(new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View view) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                    .setTitle("Delete User")
+                    .setMessage("Are you sure you want to delete the user ? ")
+                    .setIcon(R.drawable.delete)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            userEmailList = getAllUsers();
+                            currentUserEmail = userEmailList.get(holder.getAdapterPosition()).getEmail();
+                            appointmentUserId = getUserId(currentUserEmail);
+                            deleteUser(currentUserEmail);
+                            deleteAppointmentByUserId(appointmentUserId);
+                            notifyItemRemoved(holder.getAdapterPosition());
+                            Toast.makeText(context, "User Deleted Successfully !", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
+                            context.startActivity(intent);
+
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            Toast.makeText(context, "User not deleted !", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
+                            context.startActivity(intent);
+                        }
+                    });
+
+builder.show();
+
+            return true;
+        }
+    });
 
     }
 
@@ -177,26 +224,8 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
         return userList;
     }
 
-    private void addUser(User user) {
 
-        MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
-        myDataBase.userDao().insertUser(user);
 
-    }
-
-    private boolean checkIfUserExists() {
-
-        MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
-        userList = myDataBase.userDao().getUserByEmail(updateDialogEmail.getText().toString());
-
-        for (User user : userList) {
-            if (user.getEmail().equals(updateDialogEmail.getText().toString())) {
-                return true;
-            }
-
-        }
-        return false;
-    }
 
     private boolean validateEmail() {
 
@@ -227,6 +256,55 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
 
 
     }
+
+
+    private void deleteUser(String email){
+
+        MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
+        deleteUserList =  myDataBase.userDao().getUserByEmail(email);
+
+
+        for (User user : deleteUserList){
+
+            myDataBase.userDao().deleteUser(user);
+
+        }
+
+    }
+
+
+private int getUserId(String email){
+
+    MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
+   testUserList =  myDataBase.userDao().getUserByEmail(email);
+
+
+   for (User user : testUserList){
+
+       return  user.getId();
+
+   }
+
+    return 0;
+}
+
+private void deleteAppointmentByUserId(int userId){
+
+    MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
+    deleteAppointmentList = myDataBase.appointmentsDao().getAppointmentById(userId);
+
+    for (Appointments appointment: deleteAppointmentList){
+
+        myDataBase.appointmentsDao().deleteAppointment(appointment);
+
+    }
+
+
+
+
+
+}
+
 
 
 }

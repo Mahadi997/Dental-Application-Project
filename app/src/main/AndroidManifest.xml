@@ -18,10 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentalApplicationProject">
         <activity
+            android:name=".DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminShowDoctorsRecyclerView"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
+        <activity
             android:name=".AdminShowUsersRecyclerView"
             android:exported="false"
-            android:parentActivityName=".AdminActivity"
-            />
+            android:parentActivityName=".AdminActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

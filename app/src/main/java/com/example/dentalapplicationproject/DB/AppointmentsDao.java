@@ -2,6 +2,7 @@ package com.example.dentalapplicationproject.DB;
 
 import androidx.room.Dao;
 import androidx.room.Database;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -17,6 +18,11 @@ public interface AppointmentsDao {
 
     @Update
     void updateAppointment(Appointments appointments);
+
+
+
+    @Delete
+    void deleteAppointment(Appointments appointments);
 
 
     @Query("SELECT * FROM appointments")
