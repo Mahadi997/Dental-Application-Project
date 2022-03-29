@@ -6,7 +6,6 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -27,7 +26,7 @@ public class AdminActivity extends AppCompatActivity {
         adminAppointments = findViewById(R.id.adminAppointments);
         adminShowUsers = findViewById(R.id.adminShowUsers);
         adminLogout = findViewById(R.id.adminLogout);
-        adminApprovedAppointments = findViewById(R.id.adminApprovedAppointments);
+        adminApprovedAppointments = findViewById(R.id.doctorLogoutCard);
         adminShowDoctors = findViewById(R.id.adminShowDoctors);
 
 
