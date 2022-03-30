@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:layout_weight="4"
         app:columnCount="2"
-        app:rowCount="3">
+        app:rowCount="4">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/adminAppointments"
@@ -170,6 +170,8 @@
                 tools:ignore="ContentDescription" />
         </androidx.cardview.widget.CardView>
 
+
+
         <androidx.cardview.widget.CardView
             android:id="@+id/logoutCard"
             android:layout_width="0dp"
@@ -195,9 +197,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="35dp"
-                app:srcCompat="@drawable/lo"
+                app:srcCompat="@drawable/logout"
                 tools:ignore="ContentDescription" />
         </androidx.cardview.widget.CardView>
+
+
+
+
 
     </androidx.gridlayout.widget.GridLayout>
 

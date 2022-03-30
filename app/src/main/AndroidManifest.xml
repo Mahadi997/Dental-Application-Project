@@ -21,8 +21,7 @@
         <activity
             android:name=".DoctorUploadImageFromGalleryActivity"
             android:exported="false"
-            android:parentActivityName=".DoctorActivity"
-            />
+            android:parentActivityName=".DoctorActivity" />
         <activity
             android:name=".DoctorUploadPictureActivity"
             android:exported="false"

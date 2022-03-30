@@ -11,9 +11,9 @@ public class DoctorImages {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int doctorId;
-    private Integer image;
+    private byte[] image;
 
-    public DoctorImages(int doctorId, Integer image) {
+    public DoctorImages(int doctorId, byte[] image) {
         this.doctorId = doctorId;
         this.image = image;
     }
@@ -30,7 +30,7 @@ public class DoctorImages {
         return doctorId;
     }
 
-    public Integer getImage() {
+    public byte[] getImage() {
         return image;
     }
 }

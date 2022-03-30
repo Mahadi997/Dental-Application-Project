@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         doctorsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, DoctorRecyclerView.class);
                 intent.putExtra("id", userId);
                 startActivity(intent);

@@ -183,7 +183,7 @@ builder.show();
             super(itemView);
 
             adminUserImage = itemView.findViewById(R.id.adminUserImage);
-            adminUserNameAndSurname = itemView.findViewById(R.id.adminUserNameAndSurname);
+            adminUserNameAndSurname = itemView.findViewById(R.id.ourWorkDoctorNameAndSurname);
             userRow = itemView.findViewById(R.id.userRow);
 
 

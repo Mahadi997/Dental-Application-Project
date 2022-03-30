@@ -48,7 +48,6 @@
         android:layout_marginTop="11dp"
         android:background="#fff"
         android:hint="Description"
-        android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="11dp"
         android:textColorHint="#757575" />

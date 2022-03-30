@@ -8,8 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.dentalapplicationproject.DB.DataConvertor;
+import com.example.dentalapplicationproject.DB.DoctorImages;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 import com.example.dentalapplicationproject.DB.User;
 
@@ -23,6 +26,9 @@ public class SettingsActivity extends AppCompatActivity {
     private Button settingsConfirmBtn;
     private List<User> userList;
     private int userId;
+    private List<DoctorImages> doctorImagesList;
+    ImageView settingsImage;
+    ImageView settingsGalleryImage;
 
 
     @Override
@@ -35,6 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
         settingsReNewPassword = findViewById(R.id.settingsRePassword);
         settingsConfirmBtn = findViewById(R.id.settingsConfirmBtn);
         userId = getIntent().getIntExtra("id", 0);
+
 
         settingsConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +126,9 @@ public class SettingsActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

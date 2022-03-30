@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.dentalapplicationproject.DB.DataConvertor;
 import com.example.dentalapplicationproject.DB.DoctorImages;
 import com.example.dentalapplicationproject.DB.MyDataBase;
 
@@ -23,6 +24,8 @@ public class DoctorUploadPictureActivity extends AppCompatActivity {
     ImageView imgCamera;
     Button btnCamera;
     Button btnCameraUpload;
+   private Bitmap img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class DoctorUploadPictureActivity extends AppCompatActivity {
                 }
                 else{
 
-                    DoctorImages image = new DoctorImages(doctorId,R.id.imgCamera);
+                    DoctorImages image = new DoctorImages(doctorId, DataConvertor.convertImage2ByteArray(img));
                     insertImage(image);
                     Toast.makeText(DoctorUploadPictureActivity.this, "Image Inserted Successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(DoctorUploadPictureActivity.this, DoctorActivity.class);
@@ -84,7 +87,7 @@ public class DoctorUploadPictureActivity extends AppCompatActivity {
             if (requestCode == CAMERA_REQUEST_CODE) {
 
                 //for camera
-                Bitmap img = (Bitmap) data.getExtras().get("data");
+                 img = (Bitmap) data.getExtras().get("data");
                 imgCamera.setImageBitmap(img);
 
 

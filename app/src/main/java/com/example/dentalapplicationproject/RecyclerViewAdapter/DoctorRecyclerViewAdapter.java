@@ -1,5 +1,6 @@
 package com.example.dentalapplicationproject.RecyclerViewAdapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import java.util.List;
 public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
 
     private List<Doctor> doctorList;
+    private Context context;
+    private String doctorName;
+    private int userId;
 
     public DoctorRecyclerViewAdapter(List<Doctor> doctorList) {
         this.doctorList = doctorList;
@@ -37,6 +41,8 @@ public class DoctorRecyclerViewAdapter extends RecyclerView.Adapter<DoctorViewHo
         holder.getCardDoctorName().setText(doctorList.get(position).getName());
         holder.getCardDoctorDescription().setText(doctorList.get(position).getDescription());
         holder.getCardDoctorImage().setImageResource(R.drawable.dentist);
+
+
 
 
     }

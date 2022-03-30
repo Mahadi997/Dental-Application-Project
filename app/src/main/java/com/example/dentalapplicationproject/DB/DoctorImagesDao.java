@@ -16,7 +16,7 @@ public interface DoctorImagesDao {
     void insertImage(DoctorImages image);
 
     @Update
-    void updateImage(Doctor doctor);
+    void updateImage(DoctorImages image);
 
     @Delete
     void deleteImage(DoctorImages image);
@@ -26,7 +26,7 @@ public interface DoctorImagesDao {
 
 
     @Query("SELECT * FROM doctorimages WHERE doctorId=:doctorId")
-    List<Doctor> getImagesByDoctorId(int  doctorId);
+    List<DoctorImages> getImagesByDoctorId(int  doctorId);
 
 
 
