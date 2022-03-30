@@ -10,32 +10,33 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-import com.example.dentalapplicationproject.DB.Appointments;
 import com.example.dentalapplicationproject.DB.Doctor;
+import com.example.dentalapplicationproject.DB.DoctorImages;
 import com.example.dentalapplicationproject.DB.MyDataBase;
-import com.example.dentalapplicationproject.RecyclerViewAdapter.AppointmentsRecyclerViewAdapter;
+import com.example.dentalapplicationproject.RecyclerViewAdapter.OurWorkRecyclerViewAdapter;
 
 import java.util.List;
 
-public class AppointmentsRecyclerView extends AppCompatActivity {
+public class OurWorkRecyclerView extends AppCompatActivity {
 
-    private RecyclerView appointmentsRecyclerView;
-    private List<Appointments> appointmentsList;
+    RecyclerView ourWorkRecyclerView;
     private int userId;
-    private int appointmentId;
+
+    private List<DoctorImages> doctorImagesList;
+    private List<Doctor> doctorList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointments_recycler_view);
-        setTitle("Appointments");
-        userId = getIntent().getIntExtra("id",0);
-        appointmentId = getIntent().getIntExtra("appointmentId",0);
-        appointmentsRecyclerView = findViewById(R.id.appointmentsRecyclerView);
-        appointmentsRecyclerView.setAdapter(new AppointmentsRecyclerViewAdapter(getAppointmentsById(userId)));
-        appointmentsRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        setContentView(R.layout.activity_our_work_recycler_view);
+        ourWorkRecyclerView = findViewById(R.id.ourWorkRecyclerView);
+        userId = getIntent().getIntExtra("id", 0);
+        ourWorkRecyclerView.setAdapter(new OurWorkRecyclerViewAdapter(getAllImages(), getAllDoctors()));
+        ourWorkRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         ActionBar actionBar;
         actionBar = getSupportActionBar();
@@ -43,25 +44,32 @@ public class AppointmentsRecyclerView extends AppCompatActivity {
         actionBar.setBackgroundDrawable(colorDrawable);
 
 
+
     }
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        myIntent.putExtra("id",userId);
+        myIntent.putExtra("id", userId);
         startActivityForResult(myIntent, 0);
         return true;
     }
 
 
-    private List<Appointments> getAppointmentsById(int userId) {
+    List<DoctorImages> getAllImages() {
 
         MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
-        appointmentsList = myDataBase.appointmentsDao().getAppointmentById(userId);
+        return myDataBase.doctorImagesDao().getAllImages();
 
-        return appointmentsList;
     }
 
+    List<Doctor> getAllDoctors() {
 
+        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+        return myDataBase.doctorDao().getAllDoctors();
+
+
+    }
 
 }

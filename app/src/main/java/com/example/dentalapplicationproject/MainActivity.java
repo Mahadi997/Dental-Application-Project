@@ -1,9 +1,12 @@
 package com.example.dentalapplicationproject;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         userId = getIntent().getIntExtra("id", 0);
         appointmentId = getIntent().getIntExtra("appointmentId",0);
 
-
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009688"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
 
         appointmentCard.setOnClickListener(new View.OnClickListener() {

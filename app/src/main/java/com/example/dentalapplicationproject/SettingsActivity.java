@@ -1,8 +1,11 @@
 package com.example.dentalapplicationproject;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
     private Button settingsConfirmBtn;
     private List<User> userList;
     private int userId;
-    private List<DoctorImages> doctorImagesList;
-    ImageView settingsImage;
-    ImageView settingsGalleryImage;
+
 
 
     @Override
@@ -42,6 +43,10 @@ public class SettingsActivity extends AppCompatActivity {
         settingsConfirmBtn = findViewById(R.id.settingsConfirmBtn);
         userId = getIntent().getIntExtra("id", 0);
 
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009688"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         settingsConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +132,20 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-
+//    void setImage(ImageView image, ImageView image2){
+//
+//        MyDataBase myDataBase = MyDataBase.getInstance(getApplicationContext());
+//        doctorImagesList = myDataBase.doctorImagesDao().getAllImages();
+//
+//
+//        for (DoctorImages doctorImages: doctorImagesList){
+//
+//image.setImageBitmap(DataConvertor.convertByteArray2Image(doctorImages.getImage()));
+//image2.setImageBitmap(DataConvertor.convertByteArray2Image(doctorImages.getImage()));
+//        }
+//
+//
+//    }
 
 
 

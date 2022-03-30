@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom|fill"
+    android:background="#009688"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,10 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="@string/dental_application"
+        android:gravity="center"
+        android:text="Dental Application"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="34sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_margin="21dp"
+        />
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
@@ -171,7 +176,6 @@
         </androidx.cardview.widget.CardView>
 
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/logoutCard"
             android:layout_width="0dp"
@@ -200,9 +204,6 @@
                 app:srcCompat="@drawable/logout"
                 tools:ignore="ContentDescription" />
         </androidx.cardview.widget.CardView>
-
-
-
 
 
     </androidx.gridlayout.widget.GridLayout>

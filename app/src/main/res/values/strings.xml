@@ -15,4 +15,6 @@
     <string name="admin">Admin</string>
     <string name="appointments">appointments</string>
     <string name="email">email</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_my_maps">MyMapsActivity</string>
 </resources>

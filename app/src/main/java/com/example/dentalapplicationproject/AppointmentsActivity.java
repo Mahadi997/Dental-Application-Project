@@ -1,10 +1,13 @@
 package com.example.dentalapplicationproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.utils.ViewSpline;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +49,11 @@ public class AppointmentsActivity extends AppCompatActivity {
         showDate = findViewById(R.id.showDate);
         requestAppointment = findViewById(R.id.requestAppointment);
         userId = getIntent().getIntExtra("id", 0);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#009688"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
