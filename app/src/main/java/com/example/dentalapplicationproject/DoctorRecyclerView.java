@@ -33,7 +33,7 @@ public class DoctorRecyclerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_recycler_view);
-        setTitle("Our Doctors");
+        setTitle("Doctors");
         userId = getIntent().getIntExtra("id",0);
         doctorRecyclerView = findViewById(R.id.doctorRecyclerView);
         doctorRecyclerView.setAdapter(new DoctorRecyclerViewAdapter(getAllDoctors()));

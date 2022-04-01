@@ -62,7 +62,7 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.getAdminUserImage().setImageResource(R.drawable.user);
+        holder.getAdminUserImage().setImageResource(R.drawable.new_user);
         holder.getAdminUserNameAndSurname().setText(getUserFirstAndLastName(userList.get(position).getId()));
 
         holder.getUserRow().setOnClickListener(new View.OnClickListener() {

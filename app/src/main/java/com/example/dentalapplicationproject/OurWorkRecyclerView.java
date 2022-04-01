@@ -34,6 +34,7 @@ public class OurWorkRecyclerView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_our_work_recycler_view);
         ourWorkRecyclerView = findViewById(R.id.ourWorkRecyclerView);
+        setTitle("Our Work");
         userId = getIntent().getIntExtra("id", 0);
         ourWorkRecyclerView.setAdapter(new OurWorkRecyclerViewAdapter(getAllImages(), getAllDoctors()));
         ourWorkRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
