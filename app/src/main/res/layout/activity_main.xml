@@ -8,18 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/adminMainTitle"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="21dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="Dental Application"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        android:textStyle="bold" />
-
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -208,6 +196,6 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5" />
+        android:layout_weight="0.1" />
 
 </LinearLayout>

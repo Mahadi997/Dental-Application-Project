@@ -33,8 +33,8 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
     List<User> deleteUserList;
     List<User> userList;
     List<User> userEmailList;
-     List<User> testUserList;
-     List<Appointments> deleteAppointmentList;
+    List<User> testUserList;
+    List<Appointments> deleteAppointmentList;
     String currentUserEmail;
     EditText updateDialogFirstname;
     EditText updateDialogLastname;
@@ -103,14 +103,12 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
                             currentUserEmail = userEmailList.get(holder.getAdapterPosition()).getEmail();
 
 
-
-                            updateUser(currentUserEmail,updateDialogFirstname.getText().toString(), updateDialogLastname.getText().toString(), updateDialogCity.getText().toString(), updateDialogAddress.getText().toString(), updateDialogEmail.getText().toString(), updateDialogPassword.getText().toString());
+                            updateUser(currentUserEmail, updateDialogFirstname.getText().toString(), updateDialogLastname.getText().toString(), updateDialogCity.getText().toString(), updateDialogAddress.getText().toString(), updateDialogEmail.getText().toString(), updateDialogPassword.getText().toString());
                             Toast.makeText(context, "User Updated Successfully !", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
                             context.startActivity(intent);
 
-                        }
-                        else{
+                        } else {
 
                             Toast.makeText(context, "Please fill all the fields !", Toast.LENGTH_SHORT).show();
 
@@ -125,44 +123,44 @@ public class AdminManageUsersRecyclerAdapter extends RecyclerView.Adapter<AdminM
         });
 
 
-    holder.getUserRow().setOnLongClickListener(new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View view) {
+        holder.getUserRow().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                    .setTitle("Delete User")
-                    .setMessage("Are you sure you want to delete the user ? ")
-                    .setIcon(R.drawable.delete)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            userEmailList = getAllUsers();
-                            currentUserEmail = userEmailList.get(holder.getAdapterPosition()).getEmail();
-                            appointmentUserId = getUserId(currentUserEmail);
-                            deleteUser(currentUserEmail);
-                            deleteAppointmentByUserId(appointmentUserId);
-                            notifyItemRemoved(holder.getAdapterPosition());
-                            Toast.makeText(context, "User Deleted Successfully !", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
-                            context.startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                        .setTitle("Delete User")
+                        .setMessage("Are you sure you want to delete the user ? ")
+                        .setIcon(R.drawable.delete)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                userEmailList = getAllUsers();
+                                currentUserEmail = userEmailList.get(holder.getAdapterPosition()).getEmail();
+                                appointmentUserId = getUserId(currentUserEmail);
+                                deleteUser(currentUserEmail);
+                                deleteAppointmentByUserId(appointmentUserId);
+                                notifyItemRemoved(holder.getAdapterPosition());
+                                Toast.makeText(context, "User Deleted Successfully !", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
+                                context.startActivity(intent);
 
 
-                        }
-                    })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 //                            Toast.makeText(context, "User not deleted !", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
-                            context.startActivity(intent);
-                        }
-                    });
+                                Intent intent = new Intent(context.getApplicationContext(), AdminShowUsersRecyclerView.class);
+                                context.startActivity(intent);
+                            }
+                        });
 
-builder.show();
+                builder.show();
 
-            return true;
-        }
-    });
+                return true;
+            }
+        });
 
     }
 
@@ -225,8 +223,6 @@ builder.show();
     }
 
 
-
-
     private boolean validateEmail() {
 
         if (Patterns.EMAIL_ADDRESS.matcher(updateDialogEmail.getText().toString()).matches()) {
@@ -258,13 +254,13 @@ builder.show();
     }
 
 
-    private void deleteUser(String email){
+    private void deleteUser(String email) {
 
         MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
-        deleteUserList =  myDataBase.userDao().getUserByEmail(email);
+        deleteUserList = myDataBase.userDao().getUserByEmail(email);
 
 
-        for (User user : deleteUserList){
+        for (User user : deleteUserList) {
 
             myDataBase.userDao().deleteUser(user);
 
@@ -273,38 +269,34 @@ builder.show();
     }
 
 
-private int getUserId(String email){
+    private int getUserId(String email) {
 
-    MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
-   testUserList =  myDataBase.userDao().getUserByEmail(email);
+        MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
+        testUserList = myDataBase.userDao().getUserByEmail(email);
 
 
-   for (User user : testUserList){
+        for (User user : testUserList) {
 
-       return  user.getId();
+            return user.getId();
 
-   }
+        }
 
-    return 0;
-}
-
-private void deleteAppointmentByUserId(int userId){
-
-    MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
-    deleteAppointmentList = myDataBase.appointmentsDao().getAppointmentById(userId);
-
-    for (Appointments appointment: deleteAppointmentList){
-
-        myDataBase.appointmentsDao().deleteAppointment(appointment);
-
+        return 0;
     }
 
+    private void deleteAppointmentByUserId(int userId) {
+
+        MyDataBase myDataBase = MyDataBase.getInstance(context.getApplicationContext());
+        deleteAppointmentList = myDataBase.appointmentsDao().getAppointmentById(userId);
+
+        for (Appointments appointment : deleteAppointmentList) {
+
+            myDataBase.appointmentsDao().deleteAppointment(appointment);
+
+        }
 
 
-
-
-}
-
+    }
 
 
 }
